@@ -1,3 +1,4 @@
+var backgroundImage = "";
 function addPost() {
   var title = document.getElementById("title");
   var discrubtion = document.getElementById("discrubtion");
@@ -8,7 +9,7 @@ function addPost() {
         <div class="card-header">
           @post
         </div>
-        <div class="card-body">
+        <div style="background-image: url(${backgroundImage})" class="card-body">
        
         <blockquote class="blockquote mb-2">
           <p>${title.value}</p>
@@ -25,4 +26,13 @@ function addPost() {
       text: "Please Enter Title and Discrubtion!",
     });
   }
+}
+
+function selectImage(src) {
+  backgroundImage = src;
+  var bgImage = document.getElementsByClassName("bg-image");
+  for (i = 0; i < bgImage.length; i++) {
+    bgImage[i].className = "bg-image";
+  }
+  event.target.className += " images-list-selected";
 }
